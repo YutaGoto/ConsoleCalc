@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleCalc
 {
@@ -28,7 +29,24 @@ namespace ConsoleCalc
 
 	public class Application
 	{
-		public Rule[] rule = new Rule[];
+		public List<Rule> rule = new List<Rule>();
+
+		public List AddRule(Rule r)
+		{
+			rule.Add(r);
+		}
+
+		public void Run(int start, int stop)
+		{
+			for (i = start; int <= stop; int++)
+			{
+				string msg = "";
+				rule.ForEach
+				{
+					bool result = 
+				}
+			}
+		}
 	}
 
 	class MainClass
