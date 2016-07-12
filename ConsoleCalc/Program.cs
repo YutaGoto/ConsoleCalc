@@ -31,21 +31,30 @@ namespace ConsoleCalc
 	{
 		public List<Rule> rule = new List<Rule>();
 
-		public List AddRule(Rule r)
+		public List<Rule> AddRule(Rule r)
 		{
-			rule.Add(r);
+            return rule.Add(r);
 		}
 
 		public void Run(int start, int stop)
 		{
-			for (i = start; int <= stop; int++)
+            string msg = "";
+            for (int i = start; i <= stop; i++)
 			{
-				string msg = "";
-				rule.ForEach
-				{
-					bool result = 
-				}
+                foreach (Rule r in rule)
+                {
+                    bool result = r.Match(i);
+                    if (result)
+                    {
+                        msg += "*";
+                    }
+                    else
+                    {
+                        msg = msg + i;
+                    }
+                }
 			}
+            Console.WriteLine(msg);
 		}
 	}
 
@@ -53,9 +62,18 @@ namespace ConsoleCalc
 	{
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+            Rule rule1 = new Rule();
+            Rule rule2 = new Rule();
+            rule1.Init(3, "Fizz");
+            rule2.Init(5, "Buzz");
 
-			Console.WriteLine("press any key");
+            Application game = new Application();
+            game.AddRule(rule1);
+            game.AddRule(rule2);
+
+            game.Run(1, 10);
+
+            Console.WriteLine("press any key");
 			Console.ReadKey();
 		}
 	}
