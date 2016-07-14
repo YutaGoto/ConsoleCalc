@@ -2,7 +2,15 @@
 using System.Collections.Generic;
 
 namespace ConsoleCalc
-{ 
+{
+	public class Rule
+	{
+		public void addRule(int num, string msg)
+		{
+
+		}
+	}
+
     public class Application
     {
         public void run(int start, int stop)
